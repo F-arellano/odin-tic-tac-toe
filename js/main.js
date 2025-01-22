@@ -1,1 +1,3 @@
-console.log("hi")
+import { game } from "./game.js"
+
+game.showBoardState()
