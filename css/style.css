@@ -64,3 +64,23 @@ span {
 .cell.o {
     background-color: rgb(197, 237, 254);
 }
+
+.reset {
+    font-size: 2rem;
+
+    background-color: #ffffff;
+
+    border: 1px solid transparent;
+    border-radius: calc(1rem + 20px);
+    padding: 10px 20px;
+
+    &:hover {
+        &:hover {
+            background-color: var(--gray-color);
+        }
+    
+        &:active {
+            border: 1px solid rgb(240, 240, 240);
+        }
+    }
+}

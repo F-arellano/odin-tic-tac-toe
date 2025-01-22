@@ -1,13 +1,14 @@
 
 const game = (() => {
     // private variables
-    const board = [
+    let board = [
         [" ", " ", " "], 
         [" ", " ", " "], 
         [" ", " ", " "]
     ]
 
     let counterTurn = 0
+    let score = [0, 0]
     let gameContinue = true
 
     const playTurn = function (row, col) {
@@ -15,26 +16,20 @@ const game = (() => {
         const playerChar = (player == 0) ? 1 : -1
         board[row][col] = playerChar
 
-        showBoardState()
         if (isWinner()) {
-            console.log(`Player ${player + 1} is the winner!`)
+            score[player]++
             gameContinue = false
 
         }
         counterTurn++ 
     }
 
-    const showBoardState = function () {
-        let state = `${board[0][0]} | ${board[0][1]} | ${board[0][2]}\n`
-        state += "---------\n"
-        state += `${board[1][0]} | ${board[1][1]} | ${board[1][2]}\n`
-        state += "---------\n"
-        state += `${board[2][0]} | ${board[2][1]} | ${board[2][2]}`
-        console.log(state)
-    }
-
     const getState = function () {
-        return board
+        return {
+            board,
+            score,
+            winner: isWinner(),
+        }
     }
 
     const isWinner = function () {
@@ -60,11 +55,22 @@ const game = (() => {
         return false
     }
 
+    function resetGame () {
+        board = [
+            [" ", " ", " "], 
+            [" ", " ", " "], 
+            [" ", " ", " "]
+        ]
+        counterTurn = 0
+        gameContinue = true
+    }
+
 
 // return game object
     return {
         playTurn,
         getState,
+        resetGame,
     }
 }) ()
 
