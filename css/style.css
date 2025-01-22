@@ -29,7 +29,7 @@ span {
 }
 
 .board {
-    margin: 20px;
+    margin: 30px;
     display: grid;
     grid-template-columns: repeat(3, 100px);
     justify-items: center;
