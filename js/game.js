@@ -10,19 +10,10 @@ const game = (() => {
     let counterTurn = 0
     let gameContinue = true
 
-    // public functions
-    const playGame = function () {
-        while (counterTurn < 9 && gameContinue) {
-            const input = prompt("game coordinates").split(" ")
-            playTurn(...input)
-        }
-    }
-
-    // private functions
-    const playTurn = function (i, j) {
+    const playTurn = function (row, col) {
         const player = counterTurn % 2
         const playerChar = (player == 0) ? 1 : -1
-        board[i][j] = playerChar
+        board[row][col] = playerChar
 
         showBoardState()
         if (isWinner()) {
@@ -40,6 +31,10 @@ const game = (() => {
         state += "---------\n"
         state += `${board[2][0]} | ${board[2][1]} | ${board[2][2]}`
         console.log(state)
+    }
+
+    const getState = function () {
+        return board
     }
 
     const isWinner = function () {
@@ -68,7 +63,8 @@ const game = (() => {
 
 // return game object
     return {
-        playGame,
+        playTurn,
+        getState,
     }
 }) ()
 
