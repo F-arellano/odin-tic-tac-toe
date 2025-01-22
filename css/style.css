@@ -14,7 +14,7 @@ span {
 
     border: 1px solid transparent;
     border-radius: calc(1rem + 20px);
-    margin: 20px;
+    margin: 20px 15px;
     padding: 10px 20px;
 }
 

@@ -45,7 +45,7 @@ const screenController = (function () {
 
         if (winner) {
             const scoreSpan = document.querySelector(".score")
-            scoreSpan.textContent = `Score: ${score[0]} - ${score[1]}`
+            scoreSpan.textContent = `score: ${score[0]} - ${score[1]}`
         }
     }
 
